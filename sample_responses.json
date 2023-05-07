@@ -1,0 +1,1493 @@
+{
+    "Accept Course Invitation\n    \nEnrollmentsApiController#accept": {
+        "endpoint": "POST /api/v1/courses/:course_id/enrollments/:id/accept",
+        "response": {
+            "success": true
+        },
+        "valid": true
+    },
+    "Activity stream summary\n    \nUsersController#activity_stream_summary": {
+        "endpoint": "GET /api/v1/users/self/activity_stream/summary",
+        "response": [
+            {
+                "count": 7,
+                "type": "DiscussionTopic",
+                "unread_count": 2
+            },
+            {
+                "count": 3,
+                "type": "Conversation",
+                "unread_count": 0
+            }
+        ],
+        "valid": true
+    },
+    "Add a message\n    \nConversationsController#add_message": {
+        "endpoint": "POST /api/v1/conversations/:id/add_message",
+        "response": {
+            "audience": [
+                2,
+                3
+            ],
+            "audience_contexts": {
+                "courses": {
+                    "1": []
+                },
+                "groups": {}
+            },
+            "avatar_url": "https://canvas.instructure.com/images/messages/avatar-group-50.png",
+            "id": 2,
+            "last_message": "let's talk this over with jim",
+            "last_message_at": "2011-09-02T12:00:00-06:00",
+            "message_count": 2,
+            "messages": [
+                {
+                    "attachments": [],
+                    "author_id": 2,
+                    "body": "let's talk this over with jim",
+                    "created_at": "2011-09-02T12:00:00Z",
+                    "forwarded_messages": [],
+                    "generated": false,
+                    "id": 3,
+                    "media_comment": null
+                }
+            ],
+            "participants": [
+                {
+                    "full_name": "Joe TA",
+                    "id": 1,
+                    "name": "Joe"
+                },
+                {
+                    "full_name": "Jane Teacher",
+                    "id": 2,
+                    "name": "Jane"
+                },
+                {
+                    "full_name": "Bob Student",
+                    "id": 3,
+                    "name": "Bob"
+                }
+            ],
+            "private": false,
+            "properties": [],
+            "starred": null,
+            "subject": "conversations api example",
+            "subscribed": true,
+            "workflow_state": "unread"
+        },
+        "valid": true
+    },
+    "Add recipients\n    \nConversationsController#add_recipients": {
+        "endpoint": "POST /api/v1/conversations/:id/add_recipients",
+        "response": {
+            "audience": [
+                2,
+                3,
+                4
+            ],
+            "audience_contexts": {
+                "courses": {
+                    "1": []
+                },
+                "groups": {}
+            },
+            "avatar_url": "https://canvas.instructure.com/images/messages/avatar-group-50.png",
+            "id": 2,
+            "last_message": "let's talk this over with jim",
+            "last_message_at": "2011-09-02T12:00:00-06:00",
+            "message_count": 2,
+            "messages": [
+                {
+                    "attachments": [],
+                    "author_id": 1,
+                    "body": "Jim was added to the conversation by Joe TA",
+                    "created_at": "2011-09-02T12:10:00Z",
+                    "forwarded_messages": [],
+                    "generated": true,
+                    "id": 4,
+                    "media_comment": null
+                }
+            ],
+            "participants": [
+                {
+                    "full_name": "Joe TA",
+                    "id": 1,
+                    "name": "Joe"
+                },
+                {
+                    "full_name": "Jane Teacher",
+                    "id": 2,
+                    "name": "Jane"
+                },
+                {
+                    "full_name": "Bob Student",
+                    "id": 3,
+                    "name": "Bob"
+                },
+                {
+                    "full_name": "Jim Admin",
+                    "id": 4,
+                    "name": "Jim"
+                }
+            ],
+            "private": false,
+            "properties": [],
+            "starred": null,
+            "subject": "conversations api example",
+            "subscribed": true,
+            "workflow_state": "read"
+        },
+        "valid": true
+    },
+    "Assign unassigned members\n    \nGroupCategoriesController#assign_unassigned_members": {
+        "endpoint": "POST /api/v1/group_categories/:group_category_id/assign_unassigned_members",
+        "response": "# Progress (default)\n{\n    \"completion\": 0,\n    \"context_id\": 20,\n    \"context_type\": \"GroupCategory\",\n    \"created_at\": \"2013-07-05T10:57:48-06:00\",\n    \"id\": 2,\n    \"message\": null,\n    \"tag\": \"assign_unassigned_members\",\n    \"updated_at\": \"2013-07-05T10:57:48-06:00\",\n    \"user_id\": null,\n    \"workflow_state\": \"running\",\n    \"url\": \"http://localhost:3000/api/v1/progress/2\"\n}\n",
+        "valid": false
+    },
+    "Batch update grading periods\n    \nGradingPeriodsController#batch_update": {
+        "endpoint": "PATCH /api/v1/courses/:course_id/grading_periods/batch_update",
+        "response": "{\n  \"grading_periods\": [GradingPeriod]\n}\n",
+        "valid": false
+    },
+    "Bulk select provisional grades\n    \nProvisionalGradesController#bulk_select": {
+        "endpoint": "PUT /api/v1/courses/:course_id/assignments/:assignment_id/provisional_grades/bulk_select",
+        "response": [
+            {
+                "assignment_id": 867,
+                "selected_provisional_grade_id": 53669,
+                "student_id": 5309
+            }
+        ],
+        "valid": true
+    },
+    "Complete the quiz submission (turn it in).\n    \nQuizzes::QuizSubmissionsApiController#complete": {
+        "endpoint": "POST /api/v1/courses/:course_id/quizzes/:quiz_id/submissions/:id/complete",
+        "response": "{\n  \"quiz_submissions\": [QuizSubmission]\n}\n",
+        "valid": false
+    },
+    "Create a Score\n    \nLti::Ims::ScoresController#create": {
+        "endpoint": "POST /api/lti/courses/:course_id/line_items/:line_item_id/scores",
+        "response": "{\n  \"resultUrl\": \"https://canvas.instructure.com/url/to/result\",\n  \"https://canvas.instructure.com/lti/submission\": {\n    \"content_items\": [\n      {\n        \"type\": \"file\",\n        \"url\": \"https://instructure.com/test_file.txt\",\n        \"title\": \"Submission File\"\n        \"progress\": \"https://canvas.instructure.com/url/to/progress\"\n      }\n}\n",
+        "valid": false
+    },
+    "Create a global notification\n    \nAccountNotificationsController#create": {
+        "endpoint": "POST /api/v1/accounts/:account_id/account_notifications",
+        "response": {
+            "end_at": "2014-02-01T00:00:00Z",
+            "message": "This is a global notification",
+            "start_at": "2014-01-01T00:00:00Z",
+            "subject": "New notification"
+        },
+        "valid": true
+    },
+    "Create a grading period set\n    \nGradingPeriodSetsController#create": {
+        "endpoint": "POST /api/v1/accounts/:account_id/grading_period_sets",
+        "response": "{\n  \"grading_period_set\": [GradingPeriodGroup]\n}\n",
+        "valid": false
+    },
+    "Create a late policy\n    \nLatePolicyController#create": {
+        "endpoint": "POST /api/v1/courses/:id/late_policy",
+        "response": "{\n  \"late_policy\": LatePolicy\n}\n",
+        "valid": false
+    },
+    "Create a new grading standard\n    \nGradingStandardsApiController#create": {
+        "endpoint": "POST /api/v1/accounts/:account_id/grading_standards",
+        "response": {
+            "context_id": 1,
+            "context_type": "Course",
+            "grading_scheme": [
+                {
+                    "name": "A",
+                    "value": 0.9
+                },
+                {
+                    "name": "B",
+                    "value": 0.8
+                }
+            ],
+            "id": 1,
+            "title": "New standard name"
+        },
+        "valid": true
+    },
+    "Create a question group\n    \nQuizzes::QuizGroupsController#create": {
+        "endpoint": "POST /api/v1/courses/:course_id/quizzes/:quiz_id/groups",
+        "response": "{\n  \"quiz_groups\": [QuizGroup]\n}\n",
+        "valid": false
+    },
+    "Create a single poll\n    \nPolling::PollsController#create": {
+        "endpoint": "POST /api/v1/polls",
+        "response": "{\n  \"polls\": [Poll]\n}\n",
+        "valid": false
+    },
+    "Create a single poll choice\n    \nPolling::PollChoicesController#create": {
+        "endpoint": "POST /api/v1/polls/:poll_id/poll_choices",
+        "response": "{\n  \"poll_choices\": [PollChoice]\n}\n",
+        "valid": false
+    },
+    "Create a single poll session\n    \nPolling::PollSessionsController#create": {
+        "endpoint": "POST /api/v1/polls/:poll_id/poll_sessions",
+        "response": "{\n  \"poll_sessions\": [PollSession]\n}\n",
+        "valid": false
+    },
+    "Create a single poll submission\n    \nPolling::PollSubmissionsController#create": {
+        "endpoint": "POST /api/v1/polls/:poll_id/poll_sessions/:poll_session_id/poll_submissions",
+        "response": "{\n  \"poll_submissions\": [PollSubmission]\n}\n",
+        "valid": false
+    },
+    "Create live assessment results\n    \nLiveAssessments::ResultsController#create": {
+        "endpoint": "POST /api/v1/courses/:course_id/live_assessments/:assessment_id/results",
+        "response": "{\n  \"results\": [Result]\n}\n",
+        "valid": false
+    },
+    "Create or find a live assessment\n    \nLiveAssessments::AssessmentsController#create": {
+        "endpoint": "POST /api/v1/courses/:course_id/live_assessments",
+        "response": "{\n  \"links\": {\n    \"assessments.results\": \"http://example.com/courses/1/live_assessments/5/results\"\n  },\n  \"assessments\": [Assessment]\n}\n",
+        "valid": false
+    },
+    "Create the quiz submission (start a quiz-taking session)\n    \nQuizzes::QuizSubmissionsApiController#create": {
+        "endpoint": "POST /api/v1/courses/:course_id/quizzes/:quiz_id/submissions",
+        "response": "{\n  \"quiz_submissions\": [QuizSubmission]\n}\n",
+        "valid": false
+    },
+    "Delete a conversation\n    \nConversationsController#destroy": {
+        "endpoint": "DELETE /api/v1/conversations/:id",
+        "response": {
+            "id": 2,
+            "last_message": null,
+            "last_message_at": null,
+            "message_count": 0,
+            "private": true,
+            "properties": [],
+            "starred": false,
+            "subject": "conversations api example",
+            "subscribed": true,
+            "workflow_state": "read"
+        },
+        "valid": true
+    },
+    "Delete a message\n    \nConversationsController#remove_messages": {
+        "endpoint": "POST /api/v1/conversations/:id/remove_messages",
+        "response": {
+            "id": 2,
+            "last_message": "sure thing, here's the file",
+            "last_message_at": "2011-09-02T12:00:00-06:00",
+            "message_count": 1,
+            "private": true,
+            "properties": [
+                "attachments"
+            ],
+            "starred": null,
+            "subject": "conversations api example",
+            "subscribed": true,
+            "workflow_state": "read"
+        },
+        "valid": true
+    },
+    "Delete a user login\n    \nPseudonymsController#destroy": {
+        "endpoint": "DELETE /api/v1/users/:user_id/logins/:id",
+        "response": {
+            "account_id": 1,
+            "id": 12345,
+            "sis_user_id": null,
+            "unique_id": "bieber@example.com",
+            "user_id": 2
+        },
+        "valid": true
+    },
+    "Delete custom data\n    \nCustomDataController#delete_data": {
+        "endpoint": "DELETE /api/v1/users/:user_id/custom_data(/*scope)",
+        "response": "!!!javascript\n{\n  \"data\": \"a bit sour\"\n}\n",
+        "valid": false
+    },
+    "Delete/Conclude a course\n    \nCoursesController#destroy": {
+        "endpoint": "DELETE /api/v1/courses/:id",
+        "response": {
+            "delete": "true"
+        },
+        "valid": true
+    },
+    "Edit a conversation\n    \nConversationsController#update": {
+        "endpoint": "PUT /api/v1/conversations/:id",
+        "response": {
+            "audience": [
+                2
+            ],
+            "audience_contexts": {
+                "courses": {
+                    "1": []
+                },
+                "groups": {}
+            },
+            "avatar_url": "https://canvas.instructure.com/images/messages/avatar-50.png",
+            "id": 2,
+            "last_message": "sure thing, here's the file",
+            "last_message_at": "2011-09-02T12:00:00-06:00",
+            "message_count": 2,
+            "participants": [
+                {
+                    "full_name": "Joe TA",
+                    "id": 1,
+                    "name": "Joe"
+                }
+            ],
+            "private": true,
+            "properties": [
+                "attachments"
+            ],
+            "starred": false,
+            "subject": "conversations api example",
+            "subscribed": true,
+            "workflow_state": "read"
+        },
+        "valid": true
+    },
+    "Edit a user login\n    \nPseudonymsController#update": {
+        "endpoint": "PUT /api/v1/accounts/:account_id/logins/:id",
+        "response": {
+            "account_id": 3,
+            "authentication_provider_id": null,
+            "created_at": "2020-01-29T19:33:35Z",
+            "declared_user_type": "teacher",
+            "id": 1,
+            "integration_id": null,
+            "sis_user_id": null,
+            "unique_id": "bieber@example.com",
+            "user_id": 2,
+            "workflow_state": "active"
+        },
+        "valid": true
+    },
+    "Fetching the latest quiz statistics\n    \nQuizzes::QuizStatisticsController#index": {
+        "endpoint": "GET /api/v1/courses/:course_id/quizzes/:quiz_id/statistics",
+        "response": "{\n  \"quiz_statistics\": [ QuizStatistics ]\n}\n",
+        "valid": false
+    },
+    "Find recipients\n    \nSearchController#recipients": {
+        "endpoint": "GET /api/v1/conversations/find_recipients",
+        "response": [
+            {
+                "id": "group_1",
+                "name": "the group",
+                "type": "context",
+                "user_count": 3
+            },
+            {
+                "common_courses": {},
+                "common_groups": {
+                    "1": [
+                        "Member"
+                    ]
+                },
+                "full_name": "greg jones",
+                "id": 2,
+                "name": "greg"
+            }
+        ],
+        "valid": true
+    },
+    "Get Kaltura config\n    \nServicesApiController#show_kaltura_config": {
+        "endpoint": "GET /api/v1/services/kaltura",
+        "response": "# For an enabled Kaltura plugin:\n{\n  'domain': 'kaltura.example.com',\n  'enabled': true,\n  'partner_id': '123456',\n  'resource_domain': 'cdn.kaltura.example.com',\n  'rtmp_domain': 'rtmp.example.com'\n}\n\n# For a disabled or unconfigured Kaltura plugin:\n{\n  'enabled': false\n}\n",
+        "valid": false
+    },
+    "Get a Pandata Events jwt token and its expiration date\n    \nUsersController#pandata_events_token": {
+        "endpoint": "POST /api/v1/users/self/pandata_events_token",
+        "response": "{\n  \"url\": \"https://example.com/pandata/events\"\n  \"auth_token\": \"wek23klsdnsoieioeoi3of9deeo8r8eo8fdn\",\n  \"props_token\": \"paowinefopwienpfiownepfiownepfownef\",\n  \"expires_at\": 1521667783000,\n}\n",
+        "valid": false
+    },
+    "Get a formatted student numerical answer.\n    \nQuizzes::QuizSubmissionQuestionsController#formatted_answer": {
+        "endpoint": "GET /api/v1/quiz_submissions/:quiz_submission_id/questions/:id/formatted_answer",
+        "response": {
+            "formatted_answer": 12.1234
+        },
+        "valid": true
+    },
+    "Get a late policy\n    \nLatePolicyController#show": {
+        "endpoint": "GET /api/v1/courses/:id/late_policy",
+        "response": "{\n  \"late_policy\": LatePolicy\n}\n",
+        "valid": false
+    },
+    "Get a single conversation\n    \nConversationsController#show": {
+        "endpoint": "GET /api/v1/conversations/:id",
+        "response": {
+            "audience": [
+                2
+            ],
+            "audience_contexts": {
+                "courses": {
+                    "1": []
+                },
+                "groups": {}
+            },
+            "avatar_url": "https://canvas.instructure.com/images/messages/avatar-50.png",
+            "id": 2,
+            "last_message": "sure thing, here's the file",
+            "last_message_at": "2011-09-02T12:00:00-06:00",
+            "message_count": 2,
+            "messages": [
+                {
+                    "attachments": [
+                        {
+                            "display_name": "notes.doc",
+                            "id": 1,
+                            "uuid": "abcdefabcdefabcdefabcdefabcdef"
+                        }
+                    ],
+                    "author_id": 2,
+                    "body": "sure thing, here's the file",
+                    "created_at": "2011-09-02T12:00:00Z",
+                    "forwarded_messages": [],
+                    "generated": false,
+                    "id": 3,
+                    "media_comment": null
+                },
+                {
+                    "attachments": [],
+                    "author_id": 2,
+                    "body": "hey, bob didn't get the notes. do you have a copy i can give him?",
+                    "created_at": "2011-09-02T11:00:00Z",
+                    "forwarded_messages": [
+                        {
+                            "attachments": [],
+                            "author_id": 3,
+                            "body": "can i get a copy of the notes? i was out",
+                            "created_at": "2011-09-02T10:00:00Z",
+                            "forwarded_messages": [],
+                            "generated": false,
+                            "id": 1,
+                            "media_comment": null
+                        }
+                    ],
+                    "generated": false,
+                    "id": 2,
+                    "media_comment": null
+                }
+            ],
+            "participants": [
+                {
+                    "full_name": "Joe TA",
+                    "id": 1,
+                    "name": "Joe"
+                },
+                {
+                    "full_name": "Jane Teacher",
+                    "id": 2,
+                    "name": "Jane"
+                },
+                {
+                    "full_name": "Bob Student",
+                    "id": 3,
+                    "name": "Bob"
+                }
+            ],
+            "private": true,
+            "properties": [
+                "attachments"
+            ],
+            "starred": false,
+            "subject": "conversations api example",
+            "submissions": [],
+            "subscribed": true,
+            "workflow_state": "unread"
+        },
+        "valid": true
+    },
+    "Get a single external tool\n    \nExternalToolsController#show": {
+        "endpoint": "GET /api/v1/courses/:course_id/external_tools/:external_tool_id",
+        "response": {
+            "account_navigation": {
+                "canvas_icon_class": "icon-lti",
+                "icon_url": "...",
+                "label": "...",
+                "selection_height": 50,
+                "selection_width": 50,
+                "text": "...",
+                "url": "..."
+            },
+            "assignment_selection": null,
+            "consumer_key": "key",
+            "course_home_sub_navigation": null,
+            "course_navigation": {
+                "canvas_icon_class": "icon-lti",
+                "default": "disabled",
+                "enabled": "true",
+                "icon_url": "...",
+                "text": "...",
+                "url": "...",
+                "visibility": "public",
+                "windowTarget": "_blank"
+            },
+            "created_at": "2037-07-21T13:29:31Z",
+            "custom_fields": {
+                "key": "value"
+            },
+            "description": "This is for cool things",
+            "domain": "domain.example.com",
+            "editor_button": {
+                "canvas_icon_class": "icon-lti",
+                "icon_url": "...",
+                "label": "...",
+                "message_type": "ContentItemSelectionRequest",
+                "selection_height": 50,
+                "selection_width": 50,
+                "text": "...",
+                "url": "..."
+            },
+            "homework_submission": null,
+            "icon_url": "...",
+            "id": 1,
+            "link_selection": null,
+            "migration_selection": null,
+            "name": "LTI Tool",
+            "not_selectable": false,
+            "privacy_level": "anonymous",
+            "resource_selection": null,
+            "selection_height": 500,
+            "selection_width": 500,
+            "tool_configuration": null,
+            "updated_at": "2037-07-28T19:38:31Z",
+            "url": "http://www.example.com/ims/lti",
+            "user_navigation": {
+                "canvas_icon_class": "icon-lti",
+                "default": "disabled",
+                "enabled": "true",
+                "icon_url": "...",
+                "text": "...",
+                "url": "...",
+                "visibility": "public",
+                "windowTarget": "_blank"
+            }
+        },
+        "valid": true
+    },
+    "Get a single grading period\n    \nGradingPeriodsController#show": {
+        "endpoint": "GET /api/v1/courses/:course_id/grading_periods/:id",
+        "response": "{\n  \"grading_periods\": [GradingPeriod]\n}\n",
+        "valid": false
+    },
+    "Get a single poll\n    \nPolling::PollsController#show": {
+        "endpoint": "GET /api/v1/polls/:id",
+        "response": "{\n  \"polls\": [Poll]\n}\n",
+        "valid": false
+    },
+    "Get a single poll choice\n    \nPolling::PollChoicesController#show": {
+        "endpoint": "GET /api/v1/polls/:poll_id/poll_choices/:id",
+        "response": "{\n  \"poll_choices\": [PollChoice]\n}\n",
+        "valid": false
+    },
+    "Get a single poll submission\n    \nPolling::PollSubmissionsController#show": {
+        "endpoint": "GET /api/v1/polls/:poll_id/poll_sessions/:poll_session_id/poll_submissions/:id",
+        "response": "{\n  \"poll_submissions\": [PollSubmission]\n}\n",
+        "valid": false
+    },
+    "Get a single quiz submission.\n    \nQuizzes::QuizSubmissionsApiController#show": {
+        "endpoint": "GET /api/v1/courses/:course_id/quizzes/:quiz_id/submissions/:id",
+        "response": "{\n  \"quiz_submissions\": [QuizSubmission]\n}\n",
+        "valid": false
+    },
+    "Get all quiz submission questions.\n    \nQuizzes::QuizSubmissionQuestionsController#index": {
+        "endpoint": "GET /api/v1/quiz_submissions/:quiz_submission_id/questions",
+        "response": "{\n  \"quiz_submission_questions\": [QuizSubmissionQuestion]\n}\n",
+        "valid": false
+    },
+    "Get all quiz submissions.\n    \nQuizzes::QuizSubmissionsApiController#index": {
+        "endpoint": "GET /api/v1/courses/:course_id/quizzes/:quiz_id/submissions",
+        "response": "{\n  \"quiz_submissions\": [QuizSubmission]\n}\n",
+        "valid": false
+    },
+    "Get asset id mapping\n    \nContentMigrationsController#asset_id_mapping": {
+        "endpoint": "GET /api/v1/courses/:course_id/content_migrations/:id/asset_id_mapping",
+        "response": {
+            "assignments": {
+                "13": "740",
+                "14": "741"
+            },
+            "discussion_topics": {
+                "15": "743",
+                "16": "744"
+            }
+        },
+        "valid": true
+    },
+    "Get available quiz IP filters.\n    \nQuizzes::QuizIpFiltersController#index": {
+        "endpoint": "GET /api/v1/courses/:course_id/quizzes/:quiz_id/ip_filters",
+        "response": "{\n  \"quiz_ip_filters\": [QuizIPFilter]\n}\n",
+        "valid": false
+    },
+    "Get bulk user progress\n    \nCoursesController#bulk_user_progress": {
+        "endpoint": "GET /api/v1/courses/:course_id/bulk_user_progress",
+        "response": [
+            {
+                "avatar_image_url": "https://<canvas>/images/messages/avatar-50.png",
+                "display_name": "Test Student 1",
+                "html_url": "https://<canvas>/courses/1/users/1",
+                "id": 1,
+                "progress": {
+                    "completed_at": null,
+                    "next_requirement_url": "https://<canvas>/courses/<course_id>/modules/items/<item_id>",
+                    "requirement_completed_count": 1,
+                    "requirement_count": 2
+                },
+                "pronouns": null
+            },
+            {
+                "avatar_image_url": "https://<canvas>/images/messages/avatar-50.png",
+                "display_name": "Test Student 2",
+                "html_url": "https://<canvas>/courses/1/users/2",
+                "id": 2,
+                "progress": {
+                    "completed_at": "2021-08-10T16:26:08Z",
+                    "next_requirement_url": null,
+                    "requirement_completed_count": 2,
+                    "requirement_count": 2
+                },
+                "pronouns": null
+            }
+        ],
+        "valid": true
+    },
+    "Get course copy status\n    \nContentImportsController#copy_course_status": {
+        "endpoint": "GET /api/v1/courses/:course_id/course_copy/:id",
+        "response": "{'progress':100, 'workflow_state':'completed', 'id':257, 'created_at':'2011-11-17T16:50:06Z', 'status_url':'/api/v1/courses/9457/course_copy/257'}\n",
+        "valid": false
+    },
+    "Get course settings\n    \nCoursesController#api_settings": {
+        "endpoint": "GET /api/v1/courses/:course_id/settings",
+        "response": {
+            "allow_student_discussion_editing": true,
+            "allow_student_discussion_topics": true,
+            "allow_student_forum_attachments": false,
+            "allow_student_organized_groups": true,
+            "conditional_release": false,
+            "default_due_time": "23:59:59",
+            "grading_standard_enabled": true,
+            "grading_standard_id": 137,
+            "hide_distribution_graphs": false,
+            "hide_final_grades": false,
+            "hide_sections_on_course_users_page": false,
+            "homeroom_course": false,
+            "lock_all_announcements": true,
+            "usage_rights_required": false
+        },
+        "valid": true
+    },
+    "Get course-level assignment data": {
+        "endpoint": "GET /api/v1/courses/:course_id/analytics/assignments",
+        "response": "[\n  {\n    \"assignment_id\": 1234,\n    \"title\": \"Assignment 1\",\n    \"points_possible\": 10,\n    \"due_at\": \"2012-01-25T22:00:00-07:00\",\n    \"unlock_at\": \"2012-01-20T22:00:00-07:00\",\n    \"muted\": false,\n    \"min_score\": 2,\n    \"max_score\": 10,\n    \"median\": 7,\n    \"first_quartile\": 4,\n    \"third_quartile\": 8,\n    \"tardiness_breakdown\": {\n      \"on_time\": 0.75,\n      \"missing\": 0.1,\n      \"late\": 0.15\n    }\n  },\n  {\n    \"assignment_id\": 1235,\n    \"title\": \"Assignment 2\",\n    \"points_possible\": 15,\n    \"due_at\": \"2012-01-26T22:00:00-07:00\",\n    \"unlock_at\": null,\n    \"muted\": true,\n    \"min_score\": 8,\n    \"max_score\": 8,\n    \"median\": 8,\n    \"first_quartile\": 8,\n    \"third_quartile\": 8,\n    \"tardiness_breakdown\": {\n      \"on_time\": 0.65,\n      \"missing\": 0.12,\n      \"late\": 0.23\n      \"total\": 275\n    }\n  }\n]\n",
+        "valid": false
+    },
+    "Get course-level participation data": {
+        "endpoint": "GET /api/v1/courses/:course_id/analytics/activity",
+        "response": [
+            {
+                "date": "2012-01-24",
+                "participations": 3,
+                "views": 10
+            }
+        ],
+        "valid": true
+    },
+    "Get course-level student summary data": {
+        "endpoint": "GET /api/v1/courses/:course_id/analytics/student_summaries",
+        "response": "[\n  {\n    \"id\": 2346,\n    \"page_views\": 351,\n    \"page_views_level\": \"1\"\n    \"max_page_view\": 415,\n    \"participations\": 1,\n    \"participations_level\": \"3\",\n    \"max_participations\": 10,\n    \"tardiness_breakdown\": {\n      \"total\": 5,\n      \"on_time\": 3,\n      \"late\": 0,\n      \"missing\": 2,\n      \"floating\": 0\n    }\n  },\n  {\n    \"id\": 2345,\n    \"page_views\": 124,\n    \"participations\": 15,\n    \"tardiness_breakdown\": {\n      \"total\": 5,\n      \"on_time\": 1,\n      \"late\": 2,\n      \"missing\": 3,\n      \"floating\": 0\n    }\n  }\n]\n",
+        "valid": false
+    },
+    "Get current quiz submission times.\n    \nQuizzes::QuizSubmissionsApiController#time": {
+        "endpoint": "GET /api/v1/courses/:course_id/quizzes/:quiz_id/submissions/:id/time",
+        "response": "{\n  \"end_at\": [DateTime],\n  \"time_left\": [Integer]\n}\n",
+        "valid": false
+    },
+    "Get custom color\n    \nUsersController#get_custom_color": {
+        "endpoint": "GET /api/v1/users/:id/colors/:asset_string",
+        "response": {
+            "hexcode": "#abc123"
+        },
+        "valid": true
+    },
+    "Get custom colors\n    \nUsersController#get_custom_colors": {
+        "endpoint": "GET /api/v1/users/:id/colors",
+        "response": {
+            "custom_colors": {
+                "course_42": "#abc123",
+                "course_88": "#123abc"
+            }
+        },
+        "valid": true
+    },
+    "Get dashboard positions\n    \nUsersController#get_dashboard_positions": {
+        "endpoint": "GET /api/v1/users/:id/dashboard_positions",
+        "response": {
+            "dashboard_positions": {
+                "course_42": 2,
+                "course_88": 1
+            }
+        },
+        "valid": true
+    },
+    "Get department-level grade data": {
+        "endpoint": "GET /api/v1/accounts/:account_id/analytics/terms/:term_id/grades",
+        "response": "{\n  \"0\": 95,\n  \"1\": 1,\n  \"2\": 0,\n  \"3\": 0,\n  ...\n  \"93\": 125,\n  \"94\": 110,\n  \"95\": 142,\n  \"96\": 157,\n  \"97\": 116,\n  \"98\": 85,\n  \"99\": 63,\n  \"100\": 190\n}\n",
+        "valid": false
+    },
+    "Get department-level participation data": {
+        "endpoint": "GET /api/v1/accounts/:account_id/analytics/terms/:term_id/activity",
+        "response": "{\n  \"by_date\": {\n    \"2012-01-24\": 1240,\n    \"2012-01-27\": 912,\n  },\n  \"by_category\": {\n    \"announcements\": 54,\n    \"assignments\": 256,\n    \"collaborations\": 18,\n    \"conferences\": 26,\n    \"discussions\": 354,\n    \"files\": 132,\n    \"general\": 59,\n    \"grades\": 177,\n    \"groups\": 132,\n    \"modules\": 71,\n    \"other\": 412,\n    \"pages\": 105,\n    \"quizzes\": 356\n  },\n}\n",
+        "valid": false
+    },
+    "Get department-level statistics": {
+        "endpoint": "GET /api/v1/accounts/:account_id/analytics/terms/:term_id/statistics",
+        "response": "{\n  \"courses\": 27,\n  \"subaccounts\": 3,\n  \"teachers\": 36,\n  \"students\": 418,\n  \"discussion_topics\": 77,\n  \"media_objects\": 219,\n  \"attachments\": 1268,\n  \"assignments\": 290,\n}\n",
+        "valid": false
+    },
+    "Get department-level statistics, broken down by subaccount": {
+        "endpoint": "GET /api/v1/accounts/:account_id/analytics/terms/:term_id/statistics_by_subaccount",
+        "response": "{\"accounts\": [\n  {\n    \"name\": \"some string\",\n    \"id\": 188,\n    \"courses\": 27,\n    \"teachers\": 36,\n    \"students\": 418,\n    \"discussion_topics\": 77,\n    \"media_objects\": 219,\n    \"attachments\": 1268,\n    \"assignments\": 290,\n  }\n]}\n",
+        "valid": false
+    },
+    "Get document annotations read state\n    \nSubmissionsApiController#document_annotations_read_state": {
+        "endpoint": "GET /api/v1/courses/:course_id/assignments/:assignment_id/submissions/:user_id/document_annotations/read",
+        "response": {
+            "read": false
+        },
+        "valid": true
+    },
+    "Get effective due dates\n    \nCoursesController#effective_due_dates": {
+        "endpoint": "GET /api/v1/courses/:course_id/effective_due_dates",
+        "response": "{\n  \"1\": {\n     \"14\": { \"due_at\": \"2015-09-05\", \"grading_period_id\": null, \"in_closed_grading_period\": false },\n     \"15\": { due_at: null, \"grading_period_id\": 3, \"in_closed_grading_period\": true }\n  },\n  \"2\": {\n     \"14\": { \"due_at\": \"2015-08-05\", \"grading_period_id\": 3, \"in_closed_grading_period\": true }\n  }\n}\n",
+        "valid": false
+    },
+    "Get icon metadata\n    \nFilesController#icon_metadata": {
+        "endpoint": "GET /api/v1/files/:id/icon_metadata",
+        "response": {
+            "alt": "",
+            "color": "#FFFFFF",
+            "encodedImage": "data:image/svg+xml;base64,PH==",
+            "encodedImageName": "Health Icon",
+            "encodedImageType": "SingleColor",
+            "height": 108,
+            "outlineColor": "#65499D",
+            "outlineSize": "large",
+            "shape": "square",
+            "size": "small",
+            "text": "Hello",
+            "textBackgroundColor": "#FFFFFF",
+            "textColor": "#65499D",
+            "textPosition": "bottom-third",
+            "textSize": "x-large",
+            "transform": "translate(-54,-54)",
+            "translateX": -54,
+            "translateY": -54,
+            "type": "image/svg+xml-icon-maker-icons",
+            "width": 108,
+            "x": "50%",
+            "y": "50%"
+        },
+        "valid": true
+    },
+    "Get items media_upload_url": {
+        "endpoint": "GET /api/quiz/v1/courses/:course_id/quizzes/:assignment_id/items/media_upload_url",
+        "response": {
+            "url": "http://s3_upload_url"
+        },
+        "valid": true
+    },
+    "Get outcome result rollups\n    \nOutcomeResultsController#rollups": {
+        "endpoint": "GET /api/v1/courses/:course_id/outcome_rollups",
+        "response": "{\n  \"rollups\": [OutcomeRollup],\n  \"linked\": {\n    // (Optional) Included if include[] has outcomes\n    \"outcomes\": [Outcome],\n\n    // (Optional) Included if aggregate is not set and include[] has users\n    \"users\": [User],\n\n    // (Optional) Included if aggregate is 'course' and include[] has courses\n    \"courses\": [Course]\n\n    // (Optional) Included if include[] has outcome_groups\n    \"outcome_groups\": [OutcomeGroup],\n\n    // (Optional) Included if include[] has outcome_links\n    \"outcome_links\": [OutcomeLink]\n\n    // (Optional) Included if include[] has outcome_paths\n    \"outcome_paths\": [OutcomePath]\n\n    // (Optional) Included if include[] has outcomes.alignments\n    \"outcomes.alignments\": [OutcomeAlignment]\n  }\n}\n",
+        "valid": false
+    },
+    "Get outcome results\n    \nOutcomeResultsController#index": {
+        "endpoint": "GET /api/v1/courses/:course_id/outcome_results",
+        "response": "{\n  outcome_results: [OutcomeResult]\n}\n",
+        "valid": false
+    },
+    "Get public inline preview url\n    \nFilesController#public_url": {
+        "endpoint": "GET /api/v1/files/:id/public_url",
+        "response": {
+            "public_url": "https://example-bucket.s3.amazonaws.com/example-namespace/attachments/1/example-filename?AWSAccessKeyId=example-key&Expires=1400000000&Signature=example-signature"
+        },
+        "valid": true
+    },
+    "Get quota information\n    \nFilesController#api_quota": {
+        "endpoint": "GET /api/v1/courses/:course_id/files/quota",
+        "response": {
+            "quota": 524288000,
+            "quota_used": 402653184
+        },
+        "valid": true
+    },
+    "Get rubric assessments read state\n    \nSubmissionsApiController#rubric_assessments_read_state": {
+        "endpoint": "GET /api/v1/courses/:course_id/assignments/:assignment_id/submissions/:user_id/rubric_comments/read",
+        "response": {
+            "read": false
+        },
+        "valid": true
+    },
+    "Get running batches\n    \nConversationsController#batches": {
+        "endpoint": "GET /api/v1/conversations/batches",
+        "response": [
+            {
+                "completion": 0.1234,
+                "id": 1,
+                "message": {
+                    "attachments": [],
+                    "author_id": 1,
+                    "body": "quick reminder, no class tomorrow",
+                    "created_at": "2011-09-02T10:00:00Z",
+                    "forwarded_messages": [],
+                    "generated": false,
+                    "id": 1,
+                    "media_comment": null
+                },
+                "subject": "conversations api example",
+                "tags": [],
+                "workflow_state": "created"
+            }
+        ],
+        "valid": true
+    },
+    "Get the full topic\n    \nDiscussionTopicsApiController#view": {
+        "endpoint": "GET /api/v1/courses/:course_id/discussion_topics/:topic_id/view",
+        "response": "{\n  \"unread_entries\": [1,3,4],\n  \"entry_ratings\": {3: 1},\n  \"forced_entries\": [1],\n  \"participants\": [\n    { \"id\": 10, \"display_name\": \"user 1\", \"avatar_image_url\": \"https://...\", \"html_url\": \"https://...\" },\n    { \"id\": 11, \"display_name\": \"user 2\", \"avatar_image_url\": \"https://...\", \"html_url\": \"https://...\" }\n  ],\n  \"view\": [\n    { \"id\": 1, \"user_id\": 10, \"parent_id\": null, \"message\": \"...html text...\", \"replies\": [\n      { \"id\": 3, \"user_id\": 11, \"parent_id\": 1, \"message\": \"...html....\", \"replies\": [...] }\n    ]},\n    { \"id\": 2, \"user_id\": 11, \"parent_id\": null, \"message\": \"...html...\" },\n    { \"id\": 4, \"user_id\": 10, \"parent_id\": null, \"message\": \"...html...\" }\n  ]\n}\n",
+        "valid": false
+    },
+    "Get the quiz submission.\n    \nQuizzes::QuizSubmissionsApiController#submission": {
+        "endpoint": "GET /api/v1/courses/:course_id/quizzes/:quiz_id/submission",
+        "response": "{\n  \"quiz_submissions\": [QuizSubmission]\n}\n",
+        "valid": false
+    },
+    "Get the results for a single poll session\n    \nPolling::PollSessionsController#show": {
+        "endpoint": "GET /api/v1/polls/:poll_id/poll_sessions/:id",
+        "response": "{\n  \"poll_sessions\": [PollSession]\n}\n",
+        "valid": false
+    },
+    "Get user-in-a-course-level assignment data": {
+        "endpoint": "GET /api/v1/courses/:course_id/analytics/users/:student_id/assignments",
+        "response": [
+            {
+                "assignment_id": 1234,
+                "due_at": "2012-01-25T22:00:00-07:00",
+                "first_quartile": 4,
+                "max_score": 10,
+                "median": 7,
+                "min_score": 2,
+                "module_ids": [
+                    1,
+                    2
+                ],
+                "muted": false,
+                "points_possible": 10,
+                "submission": {
+                    "posted_at": "2012-01-23T20:00:00-07:00",
+                    "score": 10,
+                    "submitted_at": "2012-01-22T22:00:00-07:00"
+                },
+                "third_quartile": 8,
+                "title": "Assignment 1",
+                "unlock_at": "2012-01-20T22:00:00-07:00"
+            },
+            {
+                "assignment_id": 1235,
+                "due_at": "2012-01-26T22:00:00-07:00",
+                "first_quartile": 8,
+                "max_score": 8,
+                "median": 8,
+                "min_score": 8,
+                "module_ids": [
+                    1
+                ],
+                "muted": true,
+                "points_possible": 15,
+                "submission": {
+                    "posted_at": null,
+                    "submitted_at": "2012-01-22T22:00:00-07:00"
+                },
+                "third_quartile": 8,
+                "title": "Assignment 2",
+                "unlock_at": null
+            }
+        ],
+        "valid": true
+    },
+    "Get user-in-a-course-level messaging data": {
+        "endpoint": "GET /api/v1/courses/:course_id/analytics/users/:student_id/communication",
+        "response": {
+            "2012-01-24": {
+                "instructorMessages": 1,
+                "studentMessages": 2
+            },
+            "2012-01-27": {
+                "studentMessages": 1
+            }
+        },
+        "valid": true
+    },
+    "Get user-in-a-course-level participation data": {
+        "endpoint": "GET /api/v1/courses/:course_id/analytics/users/:student_id/activity",
+        "response": "{\n  \"page_views\": {\n    \"2012-01-24T13:00:00-00:00\": 19,\n    \"2012-01-24T14:00:00-00:00\": 13,\n    \"2012-01-27T09:00:00-00:00\": 23\n  },\n  \"participations\": [\n    {\n      \"created_at\": \"2012-01-21T22:00:00-06:00\",\n      \"url\": \"https://canvas.example.com/path/to/canvas\",\n    },\n    {\n      \"created_at\": \"2012-01-27T22:00:00-06:00\",\n      \"url\": \"https://canvas.example.com/path/to/canvas\",\n    }\n  ]\n}\n",
+        "valid": false
+    },
+    "Get visible course navigation tools\n    \nExternalToolsController#all_visible_nav_tools": {
+        "endpoint": "GET /api/v1/external_tools/visible_course_nav_tools",
+        "response": "[{\n  \"id\": 1,\n  \"domain\": \"domain.example.com\",\n  \"url\": \"http://www.example.com/ims/lti\",\n  \"context_id\": 5,\n  \"context_name\": \"Example Course\",\n  ...\n},\n{ ...  }]\n",
+        "valid": false
+    },
+    "Hide a stream item\n    \nUsersController#ignore_stream_item": {
+        "endpoint": "DELETE /api/v1/users/self/activity_stream/:id",
+        "response": {
+            "hidden": true
+        },
+        "valid": true
+    },
+    "Hide all stream items\n    \nUsersController#ignore_all_stream_items": {
+        "endpoint": "DELETE /api/v1/users/self/activity_stream",
+        "response": {
+            "hidden": true
+        },
+        "valid": true
+    },
+    "Import category groups\n    \nGroupCategoriesController#import": {
+        "endpoint": "POST /api/v1/group_categories/:group_category_id/import",
+        "response": "# Progress (default)\n{\n    \"completion\": 0,\n    \"context_id\": 20,\n    \"context_type\": \"GroupCategory\",\n    \"created_at\": \"2013-07-05T10:57:48-06:00\",\n    \"id\": 2,\n    \"message\": null,\n    \"tag\": \"course_group_import\",\n    \"updated_at\": \"2013-07-05T10:57:48-06:00\",\n    \"user_id\": null,\n    \"workflow_state\": \"running\",\n    \"url\": \"http://localhost:3000/api/v1/progress/2\"\n}\n",
+        "valid": false
+    },
+    "Kickoff password recovery flow\n    \nPseudonymsController#forgot_password": {
+        "endpoint": "POST /api/v1/users/reset_password",
+        "response": {
+            "requested": true
+        },
+        "valid": true
+    },
+    "List Available Reports\n    \nAccountReportsController#available_reports": {
+        "endpoint": "GET /api/v1/accounts/:account_id/reports",
+        "response": [
+            {
+                "parameters": null,
+                "report": "student_assignment_outcome_map_csv",
+                "title": "Student Competency"
+            },
+            {
+                "parameters": {
+                    "term": {
+                        "description": "The canvas id of the term to get grades from",
+                        "required": true
+                    }
+                },
+                "report": "grade_export_csv",
+                "title": "Grade Export"
+            }
+        ],
+        "valid": true
+    },
+    "List announcements\n    \nAnnouncementsApiController#index": {
+        "endpoint": "GET /api/v1/announcements",
+        "response": "[{\n  \"id\": 1,\n  \"title\": \"Hear ye\",\n  \"message\": \"Henceforth, all assignments must be...\",\n  \"posted_at\": \"2017-01-31T22:00:00Z\",\n  \"delayed_post_at\": null,\n  \"context_code\": \"course_2\",\n  ...\n}]\n",
+        "valid": false
+    },
+    "List available tabs for a course or group\n    \nTabsController#index": {
+        "endpoint": "GET /api/v1/accounts/:account_id/tabs",
+        "response": "[\n  {\n    \"html_url\": \"/courses/1\",\n    \"id\": \"home\",\n    \"label\": \"Home\",\n    \"position\": 1,\n    \"visibility\": \"public\",\n    \"type\": \"internal\"\n  },\n  {\n    \"html_url\": \"/courses/1/external_tools/4\",\n    \"id\": \"context_external_tool_4\",\n    \"label\": \"WordPress\",\n    \"hidden\": true,\n    \"visibility\": \"public\",\n    \"position\": 2,\n    \"type\": \"external\"\n  },\n  {\n    \"html_url\": \"/courses/1/grades\",\n    \"id\": \"grades\",\n    \"label\": \"Grades\",\n    \"position\": 3,\n    \"hidden\": true\n    \"visibility\": \"admins\"\n    \"type\": \"internal\"\n  }\n]\n",
+        "valid": false
+    },
+    "List avatar options\n    \nProfileController#profile_pics": {
+        "endpoint": "GET /api/v1/users/:user_id/avatars",
+        "response": "[\n  {\n    \"type\":\"gravatar\",\n    \"url\":\"https://secure.gravatar.com/avatar/2284...\",\n    \"token\":<opaque_token>,\n    \"display_name\":\"gravatar pic\"\n  },\n  {\n    \"type\":\"attachment\",\n    \"url\":<url to fetch thumbnail of attachment>,\n    \"token\":<opaque_token>,\n    \"display_name\":\"profile.jpg\",\n    \"id\":12,\n    \"content-type\":\"image/jpeg\",\n    \"filename\":\"profile.jpg\",\n    \"size\":32649\n  },\n  {\n    \"type\":\"no_pic\",\n    \"url\":\"https://<canvas>/images/dotted_pic.png\",\n    \"token\":<opaque_token>,\n    \"display_name\":\"no pic\"\n  }\n]\n",
+        "valid": false
+    },
+    "List closed poll sessions\n    \nPolling::PollSessionsController#closed": {
+        "endpoint": "GET /api/v1/poll_sessions/closed",
+        "response": "{\n  \"poll_sessions\": [PollSession]\n}\n",
+        "valid": false
+    },
+    "List conversations\n    \nConversationsController#index": {
+        "endpoint": "GET /api/v1/conversations",
+        "response": [
+            {
+                "audience": [
+                    2
+                ],
+                "audience_contexts": {
+                    "courses": {
+                        "1": [
+                            "StudentEnrollment"
+                        ]
+                    },
+                    "groups": {}
+                },
+                "avatar_url": "https://canvas.instructure.com/images/messages/avatar-group-50.png",
+                "context_name": "Canvas 101",
+                "id": 2,
+                "last_message": "sure thing, here's the file",
+                "last_message_at": "2011-09-02T12:00:00Z",
+                "message_count": 2,
+                "participants": [
+                    {
+                        "full_name": "Joe TA",
+                        "id": 1,
+                        "name": "Joe"
+                    },
+                    {
+                        "full_name": "Jane Teacher",
+                        "id": 2,
+                        "name": "Jane"
+                    }
+                ],
+                "private": true,
+                "properties": [
+                    "attachments"
+                ],
+                "starred": false,
+                "subject": "conversations api example",
+                "subscribed": true,
+                "visible": true,
+                "workflow_state": "unread"
+            }
+        ],
+        "valid": true
+    },
+    "List counts for todo items\n    \nUsersController#todo_item_count": {
+        "endpoint": "GET /api/v1/users/self/todo_item_count",
+        "response": "{\n  needs_grading_count: 32,\n  assignments_needing_submitting: 10\n}\n",
+        "valid": false
+    },
+    "List enabled features\n    \nFeatureFlagsController#enabled_features": {
+        "endpoint": "GET /api/v1/courses/:course_id/features/enabled",
+        "response": [
+            "fancy_wickets",
+            "automatic_essay_grading",
+            "telepathic_navigation"
+        ],
+        "valid": true
+    },
+    "List enrollment terms\n    \nTermsApiController#index": {
+        "endpoint": "GET /api/v1/accounts/:account_id/terms",
+        "response": "{\n  \"enrollment_terms\": [\n    {\n      \"id\": 1,\n      \"name\": \"Fall 20X6\"\n      \"start_at\": \"2026-08-31T20:00:00Z\",\n      \"end_at\": \"2026-12-20T20:00:00Z\",\n      \"created_at\": \"2025-01-02T03:43:11Z\",\n      \"workflow_state\": \"active\",\n      \"grading_period_group_id\": 1,\n      \"sis_term_id\": null,\n      \"overrides\": {\n        \"StudentEnrollment\": {\n          \"start_at\": \"2026-09-03T20:00:00Z\",\n          \"end_at\": \"2026-12-19T20:00:00Z\"\n        },\n        \"TeacherEnrollment\": {\n          \"start_at\": null,\n          \"end_at\": \"2026-12-30T20:00:00Z\"\n        }\n      }\n    }\n  ]\n}\n",
+        "valid": false
+    },
+    "List entries\n    \nDiscussionTopicsApiController#entry_list": {
+        "endpoint": "GET /api/v1/courses/:course_id/discussion_topics/:topic_id/entry_list",
+        "response": "[\n  { ... entry 1 ... },\n  { ... entry 2 ... },\n  { ... entry 3 ... },\n]\n",
+        "valid": false
+    },
+    "List entry replies\n    \nDiscussionTopicsApiController#replies": {
+        "endpoint": "GET /api/v1/courses/:course_id/discussion_topics/:topic_id/entries/:entry_id/replies",
+        "response": [
+            {
+                "created_at": "2011-11-03T21:27:44Z",
+                "forced_read_state": false,
+                "id": 1015,
+                "message": "Newer message",
+                "read_state": "read",
+                "user_id": 7084,
+                "user_name": "nobody@example.com"
+            },
+            {
+                "created_at": "2011-11-03T21:26:44Z",
+                "forced_read_state": false,
+                "id": 1014,
+                "message": "Older message",
+                "read_state": "unread",
+                "user_id": 7084,
+                "user_name": "nobody@example.com"
+            }
+        ],
+        "valid": true
+    },
+    "List environment features\n    \nFeatureFlagsController#environment": {
+        "endpoint": "GET /api/v1/features/environment",
+        "response": {
+            "automatic_essay_grading": false,
+            "fancy_wickets": true,
+            "telepathic_navigation": true
+        },
+        "valid": true
+    },
+    "List external tools\n    \nExternalToolsController#index": {
+        "endpoint": "GET /api/v1/courses/:course_id/external_tools",
+        "response": "[\n {\n   \"id\": 1,\n   \"domain\": \"domain.example.com\",\n   \"url\": \"http://www.example.com/ims/lti\",\n   \"consumer_key\": \"key\",\n   \"name\": \"LTI Tool\",\n   \"description\": \"This is for cool things\",\n   \"created_at\": \"2037-07-21T13:29:31Z\",\n   \"updated_at\": \"2037-07-28T19:38:31Z\",\n   \"privacy_level\": \"anonymous\",\n   \"custom_fields\": {\"key\": \"value\"},\n   \"is_rce_favorite\": false\n   \"account_navigation\": {\n        \"canvas_icon_class\": \"icon-lti\",\n        \"icon_url\": \"...\",\n        \"text\": \"...\",\n        \"url\": \"...\",\n        \"label\": \"...\",\n        \"selection_width\": 50,\n        \"selection_height\":50\n   },\n   \"assignment_selection\": null,\n   \"course_home_sub_navigation\": null,\n   \"course_navigation\": {\n        \"canvas_icon_class\": \"icon-lti\",\n        \"icon_url\": \"...\",\n        \"text\": \"...\",\n        \"url\": \"...\",\n        \"default\": \"disabled\",\n        \"enabled\": \"true\",\n        \"visibility\": \"public\",\n        \"windowTarget\": \"_blank\"\n   },\n   \"editor_button\": {\n        \"canvas_icon_class\": \"icon-lti\",\n        \"icon_url\": \"...\",\n        \"message_type\": \"ContentItemSelectionRequest\",\n        \"text\": \"...\",\n        \"url\": \"...\",\n        \"label\": \"...\",\n        \"selection_width\": 50,\n        \"selection_height\": 50\n   },\n   \"homework_submission\": null,\n   \"link_selection\": null,\n   \"migration_selection\": null,\n   \"resource_selection\": null,\n   \"tool_configuration\": null,\n   \"user_navigation\": null,\n   \"selection_width\": 500,\n   \"selection_height\": 500,\n   \"icon_url\": \"...\",\n   \"not_selectable\": false,\n   \"deployment_id\": null\n },\n { ...  }\n]\n",
+        "valid": false
+    },
+    "List grading period sets\n    \nGradingPeriodSetsController#index": {
+        "endpoint": "GET /api/v1/accounts/:account_id/grading_period_sets",
+        "response": "{\n  \"grading_period_set\": [GradingPeriodGroup]\n}\n",
+        "valid": false
+    },
+    "List grading periods\n    \nGradingPeriodsController#index": {
+        "endpoint": "GET /api/v1/accounts/:account_id/grading_periods",
+        "response": "{\n  \"grading_periods\": [GradingPeriod]\n}\n",
+        "valid": false
+    },
+    "List live assessment results\n    \nLiveAssessments::ResultsController#index": {
+        "endpoint": "GET /api/v1/courses/:course_id/live_assessments/:assessment_id/results",
+        "response": "{\n  \"results\": [Result]\n}\n",
+        "valid": false
+    },
+    "List live assessments\n    \nLiveAssessments::AssessmentsController#index": {
+        "endpoint": "GET /api/v1/courses/:course_id/live_assessments",
+        "response": "{\n  \"links\": {\n    \"assessments.results\": \"http://example.com/courses/1/live_assessments/{assessments.id}/results\"\n  },\n  \"assessments\": [Assessment]\n}\n",
+        "valid": false
+    },
+    "List multiple assignments gradeable students\n    \nSubmissionsApiController#multiple_gradeable_students": {
+        "endpoint": "GET /api/v1/courses/:course_id/assignments/gradeable_students",
+        "response": "A [UserDisplay] with an extra assignment_ids field to indicate what assignments\nthat user can submit\n\n[\n  {\n    \"id\": 2,\n    \"display_name\": \"Display Name\",\n    \"avatar_image_url\": \"http://avatar-image-url.jpeg\",\n    \"html_url\": \"http://canvas.com\",\n    \"assignment_ids\": [1, 2, 3]\n  }\n]\n",
+        "valid": false
+    },
+    "List opened poll sessions\n    \nPolling::PollSessionsController#opened": {
+        "endpoint": "GET /api/v1/poll_sessions/opened",
+        "response": "{\n  \"poll_sessions\": [PollSession]\n}\n",
+        "valid": false
+    },
+    "List planner items\n    \nPlannerController#index": {
+        "endpoint": "GET /api/v1/planner/items",
+        "response": "[\n {\n   \"context_type\": \"Course\",\n   \"course_id\": 1,\n   \"planner_override\": { ... planner override object ... }, // Associated PlannerOverride object if user has toggled visibility for the object on the planner\n   \"submissions\": false, // The statuses of the user's submissions for this object\n   \"plannable_id\": \"123\",\n   \"plannable_type\": \"discussion_topic\",\n   \"plannable\": { ... discussion topic object },\n   \"html_url\": \"/courses/1/discussion_topics/8\"\n },\n {\n   \"context_type\": \"Course\",\n   \"course_id\": 1,\n   \"planner_override\": {\n       \"id\": 3,\n       \"plannable_type\": \"Assignment\",\n       \"plannable_id\": 1,\n       \"user_id\": 2,\n       \"workflow_state\": \"active\",\n       \"marked_complete\": true, // A user-defined setting for marking items complete in the planner\n       \"dismissed\": false, // A user-defined setting for hiding items from the opportunities list\n       \"deleted_at\": null,\n       \"created_at\": \"2017-05-18T18:35:55Z\",\n       \"updated_at\": \"2017-05-18T18:35:55Z\"\n   },\n   \"submissions\": { // The status as it pertains to the current user\n     \"excused\": false,\n     \"graded\": false,\n     \"late\": false,\n     \"missing\": true,\n     \"needs_grading\": false,\n     \"with_feedback\": false\n   },\n   \"plannable_id\": \"456\",\n   \"plannable_type\": \"assignment\",\n   \"plannable\": { ... assignment object ...  },\n   \"html_url\": \"http://canvas.instructure.com/courses/1/assignments/1#submit\"\n },\n {\n   \"planner_override\": null,\n   \"submissions\": false, // false if no associated assignment exists for the plannable item\n   \"plannable_id\": \"789\",\n   \"plannable_type\": \"planner_note\",\n   \"plannable\": {\n     \"id\": 1,\n     \"todo_date\": \"2017-05-30T06:00:00Z\",\n     \"title\": \"hello\",\n     \"details\": \"world\",\n     \"user_id\": 2,\n     \"course_id\": null,\n     \"workflow_state\": \"active\",\n     \"created_at\": \"2017-05-30T16:29:04Z\",\n     \"updated_at\": \"2017-05-30T16:29:15Z\"\n   },\n   \"html_url\": \"http://canvas.instructure.com/api/v1/planner_notes.1\"\n }\n]\n",
+        "valid": false
+    },
+    "List planner notes\n    \nPlannerNotesController#index": {
+        "endpoint": "GET /api/v1/planner_notes",
+        "response": "[\n  {\n    'id': 4,\n    'title': 'Bring bio book',\n    'description': 'bring bio book for friend tomorrow',\n    'user_id': 1238,\n    'course_id': 4567,  // If the user assigns a note to a course\n    'todo_date': \"2017-05-09T10:12:00Z\",\n    'workflow_state': \"active\",\n  },\n  {\n    'id': 5,\n    'title': 'Bring english book',\n    'description': 'bring english book to class tomorrow',\n    'user_id': 1234,\n    'todo_date': \"2017-05-09T10:12:00Z\",\n    'workflow_state': \"active\",\n  },\n]\n",
+        "valid": false
+    },
+    "List poll choices in a poll\n    \nPolling::PollChoicesController#index": {
+        "endpoint": "GET /api/v1/polls/:poll_id/poll_choices",
+        "response": "{\n  \"poll_choices\": [PollChoice]\n}\n",
+        "valid": false
+    },
+    "List poll sessions for a poll\n    \nPolling::PollSessionsController#index": {
+        "endpoint": "GET /api/v1/polls/:poll_id/poll_sessions",
+        "response": "{\n  \"poll_sessions\": [PollSession]\n}\n",
+        "valid": false
+    },
+    "List polls\n    \nPolling::PollsController#index": {
+        "endpoint": "GET /api/v1/polls",
+        "response": "{\n  \"polls\": [Poll]\n}\n",
+        "valid": false
+    },
+    "List submissions for multiple assignments\n    \nSubmissionsApiController#for_students": {
+        "endpoint": "GET /api/v1/courses/:course_id/students/submissions",
+        "response": "# Without grouped:\n\n[\n  { \"assignment_id\": 100, grade: 5, \"user_id\": 1, ... },\n  { \"assignment_id\": 101, grade: 6, \"user_id\": 2, ... }\n\n# With grouped:\n\n[\n  {\n    \"user_id\": 1,\n    \"submissions\": [\n      { \"assignment_id\": 100, grade: 5, ... },\n      { \"assignment_id\": 101, grade: 6, ... }\n    ]\n  }\n]\n",
+        "valid": false
+    },
+    "List the TODO items\n    \nUsersController#todo_items": {
+        "endpoint": "GET /api/v1/users/self/todo",
+        "response": "[\n  {\n    'type': 'grading',        // an assignment that needs grading\n    'assignment': { .. assignment object .. },\n    'ignore': '.. url ..',\n    'ignore_permanently': '.. url ..',\n    'html_url': '.. url ..',\n    'needs_grading_count': 3, // number of submissions that need grading\n    'context_type': 'course', // course|group\n    'course_id': 1,\n    'group_id': null,\n  },\n  {\n    'type' => 'submitting',   // an assignment that needs submitting soon\n    'assignment' => { .. assignment object .. },\n    'ignore' => '.. url ..',\n    'ignore_permanently' => '.. url ..',\n    'html_url': '.. url ..',\n    'context_type': 'course',\n    'course_id': 1,\n  },\n  {\n    'type' => 'submitting',   // a quiz that needs submitting soon\n    'quiz' => { .. quiz object .. },\n    'ignore' => '.. url ..',\n    'ignore_permanently' => '.. url ..',\n    'html_url': '.. url ..',\n    'context_type': 'course',\n    'course_id': 1,\n  },\n]\n",
+        "valid": false
+    },
+    "List topic entries\n    \nDiscussionTopicsApiController#entries": {
+        "endpoint": "GET /api/v1/courses/:course_id/discussion_topics/:topic_id/entries",
+        "response": [
+            {
+                "attachment": {
+                    "content-type": "unknown/unknown",
+                    "display_name": "content.txt",
+                    "filename": "content.txt",
+                    "url": "http://www.example.com/files/681/download?verifier=JDG10Ruitv8o6LjGXWlxgOb5Sl3ElzVYm9cBKUT3"
+                },
+                "created_at": "2011-11-03T21:33:29Z",
+                "forced_read_state": false,
+                "id": 1019,
+                "message": "Newer entry",
+                "read_state": "read",
+                "user_id": 7086,
+                "user_name": "nobody@example.com"
+            },
+            {
+                "created_at": "2011-11-03T21:32:29Z",
+                "forced_read_state": false,
+                "has_more_replies": false,
+                "id": 1016,
+                "message": "first top-level entry",
+                "read_state": "unread",
+                "recent_replies": [
+                    {
+                        "created_at": "2011-11-03T21:32:29Z",
+                        "id": 1017,
+                        "message": "Reply message",
+                        "user_id": 7086,
+                        "user_name": "nobody@example.com"
+                    }
+                ],
+                "user_id": 7086,
+                "user_name": "nobody@example.com"
+            }
+        ],
+        "valid": true
+    },
+    "List upcoming assignments, calendar events\n    \nUsersController#upcoming_events": {
+        "endpoint": "GET /api/v1/users/self/upcoming_events",
+        "response": "[\n  {\n    \"id\"=>597,\n    \"title\"=>\"Upcoming Course Event\",\n    \"description\"=>\"Attendance is correlated with passing!\",\n    \"start_at\"=>\"2013-04-27T14:33:14Z\",\n    \"end_at\"=>\"2013-04-27T14:33:14Z\",\n    \"location_name\"=>\"Red brick house\",\n    \"location_address\"=>\"110 Top of the Hill Dr.\",\n    \"all_day\"=>false,\n    \"all_day_date\"=>nil,\n    \"created_at\"=>\"2013-04-26T14:33:14Z\",\n    \"updated_at\"=>\"2013-04-26T14:33:14Z\",\n    \"workflow_state\"=>\"active\",\n    \"context_code\"=>\"course_12938\",\n    \"child_events_count\"=>0,\n    \"child_events\"=>[],\n    \"parent_event_id\"=>nil,\n    \"hidden\"=>false,\n    \"url\"=>\"http://www.example.com/api/v1/calendar_events/597\",\n    \"html_url\"=>\"http://www.example.com/calendar?event_id=597&include_contexts=course_12938\"\n  },\n  {\n    \"id\"=>\"assignment_9729\",\n    \"title\"=>\"Upcoming Assignment\",\n    \"description\"=>nil,\n    \"start_at\"=>\"2013-04-28T14:47:32Z\",\n    \"end_at\"=>\"2013-04-28T14:47:32Z\",\n    \"all_day\"=>false,\n    \"all_day_date\"=>\"2013-04-28\",\n    \"created_at\"=>\"2013-04-26T14:47:32Z\",\n    \"updated_at\"=>\"2013-04-26T14:47:32Z\",\n    \"workflow_state\"=>\"published\",\n    \"context_code\"=>\"course_12942\",\n    \"assignment\"=>{\n      \"id\"=>9729,\n      \"name\"=>\"Upcoming Assignment\",\n      \"description\"=>nil,\n      \"points_possible\"=>10,\n      \"due_at\"=>\"2013-04-28T14:47:32Z\",\n      \"assignment_group_id\"=>2439,\n      \"automatic_peer_reviews\"=>false,\n      \"grade_group_students_individually\"=>nil,\n      \"grading_standard_id\"=>nil,\n      \"grading_type\"=>\"points\",\n      \"group_category_id\"=>nil,\n      \"lock_at\"=>nil,\n      \"peer_reviews\"=>false,\n      \"position\"=>1,\n      \"unlock_at\"=>nil,\n      \"course_id\"=>12942,\n      \"submission_types\"=>[\"none\"],\n      \"needs_grading_count\"=>0,\n      \"html_url\"=>\"http://www.example.com/courses/12942/assignments/9729\"\n    },\n    \"url\"=>\"http://www.example.com/api/v1/calendar_events/assignment_9729\",\n    \"html_url\"=>\"http://www.example.com/courses/12942/assignments/9729\"\n  }\n]\n",
+        "valid": false
+    },
+    "List user logins\n    \nPseudonymsController#index": {
+        "endpoint": "GET /api/v1/accounts/:account_id/logins",
+        "response": "[\n  {\n    \"account_id\": 1,\n    \"id\" 2,\n    \"sis_user_id\": null,\n    \"unique_id\": \"belieber@example.com\",\n    \"user_id\": 2,\n    \"authentication_provider_id\": 1,\n    \"authentication_provider_type\": \"facebook\",\n    \"workflow_state\": \"active\",\n    \"declared_user_type\": null,\n  }\n]\n",
+        "valid": false
+    },
+    "Load custom data\n    \nCustomDataController#get_data": {
+        "endpoint": "GET /api/v1/users/:user_id/custom_data(/*scope)",
+        "response": {
+            "data": "pistachio ice cream"
+        },
+        "valid": true
+    },
+    "Mark document annotations as read\n    \nSubmissionsApiController#mark_document_annotations_read": {
+        "endpoint": "PUT /api/v1/courses/:course_id/assignments/:assignment_id/submissions/:user_id/document_annotations/read",
+        "response": {
+            "read": true
+        },
+        "valid": true
+    },
+    "Mark rubric assessments as read\n    \nSubmissionsApiController#mark_rubric_assessments_read": {
+        "endpoint": "PUT /api/v1/courses/:course_id/assignments/:assignment_id/submissions/:user_id/rubric_comments/read",
+        "response": {
+            "read": true
+        },
+        "valid": true
+    },
+    "Permissions\n    \nAccountsController#permissions": {
+        "endpoint": "GET /api/v1/accounts/:account_id/permissions",
+        "response": "{'manage_account_memberships': 'false', 'become_user': 'true'}\n",
+        "valid": false
+    },
+    "Permissions\n    \nCoursesController#permissions": {
+        "endpoint": "GET /api/v1/courses/:course_id/permissions",
+        "response": "{'manage_grades': 'false', 'send_messages': 'true'}\n",
+        "valid": false
+    },
+    "Permissions\n    \nGroupsController#permissions": {
+        "endpoint": "GET /api/v1/groups/:group_id/permissions",
+        "response": "{'read_roster': 'true', 'send_messages_all': 'false'}\n",
+        "valid": false
+    },
+    "Preview processed html\n    \nCoursesController#preview_html": {
+        "endpoint": "POST /api/v1/courses/:course_id/preview_html",
+        "response": {
+            "html": "<p>processed html</p>"
+        },
+        "valid": true
+    },
+    "Preview processed html\n    \nGroupsController#preview_html": {
+        "endpoint": "POST /api/v1/groups/:group_id/preview_html",
+        "response": {
+            "html": "<p>processed html</p>"
+        },
+        "valid": true
+    },
+    "Reject Course Invitation\n    \nEnrollmentsApiController#reject": {
+        "endpoint": "POST /api/v1/courses/:course_id/enrollments/:id/reject",
+        "response": {
+            "success": true
+        },
+        "valid": true
+    },
+    "Remove quiz migration alert\n    \nCoursesController#dismiss_migration_limitation_msg": {
+        "endpoint": "POST /api/v1/courses/:id/dismiss_migration_limitation_message",
+        "response": {
+            "success": "true"
+        },
+        "valid": true
+    },
+    "Retrieve assignment-overridden dates for Classic Quizzes\n    \nQuizzes::QuizAssignmentOverridesController#index": {
+        "endpoint": "GET /api/v1/courses/:course_id/quizzes/assignment_overrides",
+        "response": "{\n   \"quiz_assignment_overrides\": [{\n     \"quiz_id\": \"1\",\n     \"due_dates\": [QuizAssignmentOverride],\n     \"all_dates\": [QuizAssignmentOverride]\n   },{\n     \"quiz_id\": \"2\",\n     \"due_dates\": [QuizAssignmentOverride],\n     \"all_dates\": [QuizAssignmentOverride]\n   }]\n}\n",
+        "valid": false
+    },
+    "Retrieve assignment-overridden dates for New Quizzes\n    \nQuizzes::QuizAssignmentOverridesController#new_quizzes": {
+        "endpoint": "GET /api/v1/courses/:course_id/new_quizzes/assignment_overrides",
+        "response": "{\n   \"quiz_assignment_overrides\": [{\n     \"quiz_id\": \"1\",\n     \"due_dates\": [QuizAssignmentOverride],\n     \"all_dates\": [QuizAssignmentOverride]\n   },{\n     \"quiz_id\": \"2\",\n     \"due_dates\": [QuizAssignmentOverride],\n     \"all_dates\": [QuizAssignmentOverride]\n   }]\n}\n",
+        "valid": false
+    },
+    "Retrieve captured events\n    \nQuizzes::QuizSubmissionEventsApiController#index": {
+        "endpoint": "GET /api/v1/courses/:course_id/quizzes/:quiz_id/submissions/:id/events",
+        "response": {
+            "quiz_submission_events": [
+                {
+                    "created_at": "2014-11-16T13:37:21Z",
+                    "event_data": null,
+                    "event_type": "page_blurred",
+                    "id": "3409"
+                },
+                {
+                    "created_at": "2014-11-16T13:37:27Z",
+                    "event_data": null,
+                    "event_type": "page_focused",
+                    "id": "3410"
+                }
+            ]
+        },
+        "valid": true
+    },
+    "Search account domains": {
+        "endpoint": "GET /api/v1/accounts/search",
+        "response": "[\n  {\n    \"name\": \"University of Utah\",\n    \"domain\": \"utah.edu\",\n    \"distance\": null, // distance is always nil, but preserved in the api response for backwards compatibility\n    \"authentication_provider\": \"canvas\", // which authentication_provider param to pass to the oauth flow; may be NULL\n  },\n  ...\n]\n",
+        "valid": false
+    },
+    "Select provisional grade\n    \nProvisionalGradesController#select": {
+        "endpoint": "PUT /api/v1/courses/:course_id/assignments/:assignment_id/provisional_grades/:provisional_grade_id/select",
+        "response": {
+            "assignment_id": 867,
+            "selected_provisional_grade_id": 53669,
+            "student_id": 5309
+        },
+        "valid": true
+    },
+    "Set extensions for student assignment submissions\n    \nAssignmentExtensionsController#create": {
+        "endpoint": "POST /api/v1/courses/:course_id/assignments/:assignment_id/extensions",
+        "response": "{\n  \"assignment_extensions\": [AssignmentExtension]\n}\n",
+        "valid": false
+    },
+    "Set extensions for student quiz submissions\n    \nQuizzes::CourseQuizExtensionsController#create": {
+        "endpoint": "POST /api/v1/courses/:course_id/quiz_extensions",
+        "response": "{\n  \"quiz_extensions\": [QuizExtension]\n}\n",
+        "valid": false
+    },
+    "Set extensions for student quiz submissions\n    \nQuizzes::QuizExtensionsController#create": {
+        "endpoint": "POST /api/v1/courses/:course_id/quizzes/:quiz_id/extensions",
+        "response": "{\n  \"quiz_extensions\": [QuizExtension]\n}\n",
+        "valid": false
+    },
+    "Settings\n    \nAccountsController#show_settings": {
+        "endpoint": "GET /api/v1/accounts/:account_id/settings",
+        "response": {
+            "microsoft_sync_enabled": true,
+            "microsoft_sync_login_attribute_suffix": false
+        },
+        "valid": true
+    },
+    "Show provisional grade status for a student\n    \nAnonymousProvisionalGradesController#status": {
+        "endpoint": "GET /api/v1/courses/:course_id/assignments/:assignment_id/anonymous_provisional_grades/status",
+        "response": {
+            "needs_provisional_grade": false
+        },
+        "valid": true
+    },
+    "Show provisional grade status for a student\n    \nProvisionalGradesController#status": {
+        "endpoint": "GET /api/v1/courses/:course_id/assignments/:assignment_id/provisional_grades/status",
+        "response": {
+            "needs_provisional_grade": false
+        },
+        "valid": true
+    },
+    "Start Kaltura session\n    \nServicesApiController#start_kaltura_session": {
+        "endpoint": "POST /api/v1/services/kaltura_session",
+        "response": "{\n  'ks': '1e39ad505f30c4fa1af5752b51bd69fe'\n}\n",
+        "valid": false
+    },
+    "Store custom data\n    \nCustomDataController#set_data": {
+        "endpoint": "PUT /api/v1/users/:user_id/custom_data(/*scope)",
+        "response": {
+            "data": {
+                "favorites": {
+                    "dessert": "pistachio ice cream",
+                    "meat": "pork belly"
+                },
+                "weight": "81kg"
+            }
+        },
+        "valid": true
+    },
+    "Submission Summary\n    \nSubmissionsApiController#submission_summary": {
+        "endpoint": "GET /api/v1/courses/:course_id/assignments/:assignment_id/submission_summary",
+        "response": {
+            "graded": 5,
+            "not_submitted": 42,
+            "ungraded": 10
+        },
+        "valid": true
+    },
+    "Unread count\n    \nConversationsController#unread_count": {
+        "endpoint": "GET /api/v1/conversations/unread_count",
+        "response": "{'unread_count': '7'}\n",
+        "valid": false
+    },
+    "Update a course\n    \nCoursesController#update": {
+        "endpoint": "PUT /api/v1/courses/:id",
+        "response": {
+            "course_code": "COURSE-001",
+            "end_at": "2012-08-05T23:59:59Z",
+            "name": "New course name",
+            "sis_course_id": "12345",
+            "start_at": "2012-05-05T00:00:00Z"
+        },
+        "valid": true
+    },
+    "Update a global notification\n    \nAccountNotificationsController#update": {
+        "endpoint": "PUT /api/v1/accounts/:account_id/account_notifications/:id",
+        "response": {
+            "end_at": "2014-02-01T00:00:00Z",
+            "message": "This is a global notification",
+            "start_at": "2014-01-01T00:00:00Z",
+            "subject": "New notification"
+        },
+        "valid": true
+    },
+    "Update a question group\n    \nQuizzes::QuizGroupsController#update": {
+        "endpoint": "PUT /api/v1/courses/:course_id/quizzes/:quiz_id/groups/:id",
+        "response": "{\n  \"quiz_groups\": [QuizGroup]\n}\n",
+        "valid": false
+    },
+    "Update a single grading period\n    \nGradingPeriodsController#update": {
+        "endpoint": "PUT /api/v1/courses/:course_id/grading_periods/:id",
+        "response": "{\n  \"grading_periods\": [GradingPeriod]\n}\n",
+        "valid": false
+    },
+    "Update a single poll\n    \nPolling::PollsController#update": {
+        "endpoint": "PUT /api/v1/polls/:id",
+        "response": "{\n  \"polls\": [Poll]\n}\n",
+        "valid": false
+    },
+    "Update a single poll choice\n    \nPolling::PollChoicesController#update": {
+        "endpoint": "PUT /api/v1/polls/:poll_id/poll_choices/:id",
+        "response": "{\n  \"poll_choices\": [PollChoice]\n}\n",
+        "valid": false
+    },
+    "Update a single poll session\n    \nPolling::PollSessionsController#update": {
+        "endpoint": "PUT /api/v1/polls/:poll_id/poll_sessions/:id",
+        "response": "{\n  \"poll_sessions\": [PollSession]\n}\n",
+        "valid": false
+    },
+    "Update custom color\n    \nUsersController#set_custom_color": {
+        "endpoint": "PUT /api/v1/users/:id/colors/:asset_string",
+        "response": {
+            "hexcode": "#abc123"
+        },
+        "valid": true
+    },
+    "Update dashboard positions\n    \nUsersController#set_dashboard_positions": {
+        "endpoint": "PUT /api/v1/users/:id/dashboard_positions",
+        "response": {
+            "dashboard_positions": {
+                "course_10": 3,
+                "course_42": 1,
+                "course_53": 2
+            }
+        },
+        "valid": true
+    },
+    "Update student question scores and comments.\n    \nQuizzes::QuizSubmissionsApiController#update": {
+        "endpoint": "PUT /api/v1/courses/:course_id/quizzes/:quiz_id/submissions/:id",
+        "response": "{\n  \"quiz_submissions\": [QuizSubmission]\n}\n",
+        "valid": false
+    },
+    "Upload a file\n    \nQuizzes::QuizSubmissionFilesController#create": {
+        "endpoint": "POST /api/v1/courses/:course_id/quizzes/:quiz_id/submissions/self/files",
+        "response": {
+            "attachments": [
+                {
+                    "upload_params": {
+                        "AWSAccessKeyId": "some_id",
+                        "Content-Type": "image/jpeg",
+                        "Filename": "answer_pic.jpg",
+                        "Policy": "some_opaque_string",
+                        "Signature": "another_opaque_string",
+                        "acl": "private",
+                        "key": "/users/1234/files/answer_pic.jpg"
+                    },
+                    "upload_url": "https://some-bucket.s3.amazonaws.com/"
+                }
+            ]
+        },
+        "valid": true
+    }
+}
